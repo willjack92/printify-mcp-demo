@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "printify-mcp-demo",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["PrintifyMCP"]
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "PrintifyMCP",
+        "name": "MCP_OBJECT"
+      }
+    ]
+  },
+  "observability": {
+    "enabled": true
+  },
+  "secrets": {
+    "required": ["PRINTIFY_API_KEY"]
+  }
+}
